@@ -1,5 +1,4 @@
 package w2d2;
-import w2d2.PairW;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -28,8 +27,8 @@ public class Mapper {
                 for (String w : words) {
                     w = w.replaceAll("\\.$", "");
                     w = w.replaceAll("\\,$", "");
-                    w = w.replaceAll("^\"", "");
-                    w = w.replaceAll("\"$", "");
+                    w = w.replaceAll("^\"|^\'", "");
+                    w = w.replaceAll("\"$|\'$", "");
                     if (!w.isEmpty() && w.matches("[a-z,A-Z]*")) {
                         w = w.toLowerCase();
                         pairs.add(new PairW(w, 1));

@@ -1,41 +1,38 @@
 package w2d2;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 
-public class GroupByPair implements Comparable<PairW> {
-    String key;
-    ArrayList<Integer> values;
+public class GroupByPair<K extends Comparable<K>, V > implements Comparable<GroupByPair<K, V>> {
+    K key;
+    ArrayList<V> values;
 
     public GroupByPair() {
-        key = "";
-        values = new ArrayList();
     }
 
-    public GroupByPair(String key, ArrayList<Integer> values) {
+    public GroupByPair(K key, ArrayList<V> values) {
         this.key = key;
         this.values = values;
     }
 
     @Override
-    public int compareTo(PairW other) {
-        return this.key.compareToIgnoreCase(other.key);
+    public int compareTo(GroupByPair<K, V> other) {
+        return this.key.compareTo(other.key);
     }
 
-    public ArrayList<Integer> getValues() {
+    public ArrayList<V> getValues() {
         return this.values;
     }
 
-    public void addValue(Integer newValue) {
+    public void addValue(V newValue) {
         values.add(newValue);
     }
 
-    public String getKey() {
+    public K getKey() {
         return key;
     }
 
-    public void setKey(String key) {
+    public void setKey(K key) {
         this.key = key;
     }
 
@@ -43,7 +40,7 @@ public class GroupByPair implements Comparable<PairW> {
     public String toString() {
 
         String str = "<" + key + " , " + "[";
-        Iterator<Integer> i = values.iterator();
+        Iterator<V> i = values.iterator();
 
         while (i.hasNext()) {
             str = str + i.next() + ", ";
