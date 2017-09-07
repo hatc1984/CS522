@@ -1,24 +1,29 @@
 package w1d1;
 
-public class PairW implements Comparable<PairW> {
-    String key;
-    int value;
+public class PairW<K extends Comparable<K>, V >  implements Comparable<PairW<K, V>> {
+    private K key;
+    private V value;
 
-    public PairW(String key, int value) {
+    public PairW() {
+    }
+
+    public PairW(K key, V value) {
         this.key = key;
         this.value = value;
     }
 
-    public int compareTo(PairW other) {
-        return this.key.compareToIgnoreCase(other.key);
+
+    public K getKey() {
+        return key;
     }
 
-    public int getValue() {
+    public V getValue(){
         return value;
     }
 
-    public String getKey() {
-        return key;
+    @Override
+    public int compareTo(PairW <K, V> other) {
+        return this.key.compareTo(other.getKey());
     }
 
     @Override

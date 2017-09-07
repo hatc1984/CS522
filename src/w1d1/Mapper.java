@@ -27,8 +27,8 @@ public class Mapper {
                 for (String w : words) {
                     w = w.replaceAll("\\.$", "");
                     w = w.replaceAll("\\,$", "");
-                    w = w.replaceAll("^\"", "");
-                    w = w.replaceAll("\"$", "");
+                    w = w.replaceAll("^\"|^\'", "");
+                    w = w.replaceAll("\"$|\'$", "");
                     if (!w.isEmpty() && w.matches("[a-z,A-Z]*")) {
                         w = w.toLowerCase();
                         pairs.add(new PairW(w, 1));

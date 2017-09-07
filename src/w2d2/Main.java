@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String filePath = "/Users/caoha/Documents/workspace/CS522/testdata/testDataForW1D1.txt";
+        String filePath = "src/w2d2/datatest/testDataForW1D1.txt";
 
         Mapper map = new Mapper();
         ArrayList<PairW> pairs = map.mapper(filePath);
